@@ -16,7 +16,7 @@ def hello_monkey():
     message = 'Tides for today\n' + r.text
 
     resp = twilio.twiml.Response()
-    resp.message(message, media="http://livecams.ocscsailing.com/camera1.php")
+    resp.message(message, media_url="http://livecams.ocscsailing.com/camera1.php")
 
     return str(resp)
 
