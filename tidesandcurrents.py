@@ -9,12 +9,14 @@ app = Flask(__name__)
 def hello_monkey():
     """Respond and greet the caller by name."""
 
+    #&bmon=11&bday=09&byear=2015
     r = requests.get('http://tidesandcurrents.noaa.gov/noaatidepredictions/StationTideInfo.jsp?Stationid=9414290&timeZone=1')
     from_number = request.values.get('From', None)
-    message = r.text
+
+    message = 'Tides for today\n' + r.text
 
     resp = twilio.twiml.Response()
-    resp.message(message)
+    resp.message(message, media="http://livecams.ocscsailing.com/camera1.php")
 
     return str(resp)
 
