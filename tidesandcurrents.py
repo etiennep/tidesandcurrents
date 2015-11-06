@@ -8,6 +8,7 @@ callers = {
     "+14158675309": "Curious George",
     "+14158675310": "Boots",
     "+14158675311": "Virgil",
+    "+14696888890": "Etienne",
 }
 
 @app.route("/", methods=['GET', 'POST'])
