@@ -30,7 +30,8 @@ def tides_and_currents():
     request_message = request.values.get('Body', None)
     query_date = parse_date(request_message)
     if query_date is None:
-        resp.message("Invalid request. Please send the words 'today', 'tomorrow', or a date (mm/dd/yyyy)")
+        resp.message("Invalid request. Please send the words 'today', 'tomorrow', or a date (mm/dd/yyyy) to obtain "
+                     "tide and current predictions.")
         return str(resp)
 
     tides_data = tides.query_tides(query_date)
