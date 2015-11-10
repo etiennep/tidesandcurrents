@@ -2,7 +2,8 @@ from __future__ import print_function
 from flask import Flask, request
 import twilio.twiml
 import datetime
-from tidesandcurrents import tides
+import tidesandcurrents
+from tidesandcurrents import tides, currents
 
 app = Flask(__name__)
 
@@ -35,7 +36,8 @@ def tides_and_currents():
         return str(resp)
 
     tides_data = tides.query_tides(query_date)
-    message = 'Tides and current predictions for {}\n{}'.format(query_date.strftime('%m/%d/%Y'), tides_data)
+    currents_data = currents.query_currents(query_date)
+    message = 'Tide and current predictions for {}\nTides:\n{}\nCurrents:\n{}'.format(query_date.strftime('%m/%d/%Y'), tides_data, currents_data)
 
     resp = twilio.twiml.Response()
     resp.message(message).media("http://livecams.ocscsailing.com/camera1.php")

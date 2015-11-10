@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><dataInfo>
+    <origin>NOAA/NOS/CO-OPS</origin>
+    <disclaimer>These data are based upon the latest information available as of the date of your request, and may differ from the published tidal current tables.</disclaimer>
+    <dataRange>48 Hours</dataRange>
+    <stationId>SFB1203</stationId>
+    <depth>30 feet</depth>
+    <stationName>Golden Gate Bridge, 0.46 nm E of</stationName>
+    <latitude>37.8201</latitude>
+    <longitude>-122.4730</longitude>
+    <stationType>Harmonic</stationType>
+    <beginDate>2015-11-05</beginDate>
+    <endDate>2015-11-06</endDate>
+    <dataUnits>knots</dataUnits>
+    <timeZone>LST/LDT</timeZone>
+    <meanFloodDir>69°(T)</meanFloodDir>
+    <meanEbbDir>257° (T)</meanEbbDir>
+    <data>
+        <item>
+            <dateTime>2015-11-05 01:54</dateTime>
+            <event>slack</event>
+            <slack>-</slack>
+        </item>
+        <item>
+            <dateTime>2015-11-05 05:24</dateTime>
+            <event>flood</event>
+            <flood>2.44</flood>
+        </item>
+        <item>
+            <dateTime>2015-11-05 08:42</dateTime>
+            <event>slack</event>
+            <slack>-</slack>
+        </item>
+        <item>
+            <dateTime>2015-11-05 11:18</dateTime>
+            <event>ebb</event>
+            <ebb>-1.53</ebb>
+        </item>
+        <item>
+            <dateTime>2015-11-05 14:48</dateTime>
+            <event>slack</event>
+            <slack>-</slack>
+        </item>
+        <item>
+            <dateTime>2015-11-05 17:36</dateTime>
+            <event>flood</event>
+            <flood>1.50</flood>
+        </item>
+        <item>
+            <dateTime>2015-11-05 20:30</dateTime>
+            <event>slack</event>
+            <slack>-</slack>
+        </item>
+        <item>
+            <dateTime>2015-11-05 23:12</dateTime>
+            <event>ebb</event>
+            <ebb>-1.35</ebb>
+        </item>
+        <item>
+            <dateTime>2015-11-06 02:42</dateTime>
+            <event>slack</event>
+            <slack>-</slack>
+        </item>
+        <item>
+            <dateTime>2015-11-06 06:12</dateTime>
+            <event>flood</event>
+            <flood>2.44</flood>
+        </item>
+        <item>
+            <dateTime>2015-11-06 09:24</dateTime>
+            <event>slack</event>
+            <slack>-</slack>
+        </item>
+        <item>
+            <dateTime>2015-11-06 12:06</dateTime>
+            <event>ebb</event>
+            <ebb>-1.72</ebb>
+        </item>
+        <item>
+            <dateTime>2015-11-06 15:48</dateTime>
+            <event>slack</event>
+            <slack>-</slack>
+        </item>
+        <item>
+            <dateTime>2015-11-06 18:48</dateTime>
+            <event>flood</event>
+            <flood>1.68</flood>
+        </item>
+        <item>
+            <dateTime>2015-11-06 21:36</dateTime>
+            <event>slack</event>
+            <slack>-</slack>
+        </item>
+    </data>
+</dataInfo>
