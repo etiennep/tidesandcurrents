@@ -3,7 +3,6 @@ from flask import Flask, request
 import twilio.twiml
 import datetime
 import tidesandcurrents
-from tidesandcurrents import tides, currents
 
 app = Flask(__name__)
 
@@ -27,21 +26,23 @@ def parse_date(date_str):
 def tides_and_currents():
     """Send the daily tide and current predictions"""
 
-    resp = twilio.twiml.Response()
     request_message = request.values.get('Body', None)
     query_date = parse_date(request_message)
+    resp = twilio.twiml.Response()
+
     if query_date is None:
         resp.message("Invalid request. Please send the words 'today', 'tomorrow', or a date (mm/dd/yyyy) to obtain "
                      "tide and current predictions.")
         return str(resp)
 
-    tides_data = tides.query_tides(query_date)
-    currents_data = currents.query_currents(query_date)
-    message = 'Tide and current predictions for {}\nTides:\n{}\nCurrents:\n{}'.format(query_date.strftime('%m/%d/%Y'),
-                                                                                      tides_data, currents_data)
-
-    resp = twilio.twiml.Response()
-    resp.message(message).media("http://livecams.ocscsailing.com/camera1.php")
+    try:
+        tides = tidesandcurrents.query_tides(query_date)
+        currents = tidesandcurrents.query_currents(query_date)
+        message = 'Tide and current predictions for {}\nTides:\n{}\nCurrents:\n{}'.format(query_date.strftime('%m/%d/%Y'),
+                                                                                          tides, currents)
+        resp.message(message).media(tidesandcurrents.media_link)
+    except:
+        resp.message("Error trying to retrieve tide and current predictions. Please try again later.")
 
     return str(resp)
 

@@ -10,7 +10,7 @@ class TidesTest(TestCase):
         pass
 
     def test_load(self):
-        tides_obj = tides.query_tides(datetime.date.today())
+        tides_obj = tides.query(datetime.date.today())
         assert tides_obj.data is not None
 
     def test_constructor(self):

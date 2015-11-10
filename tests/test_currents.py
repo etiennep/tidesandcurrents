@@ -10,7 +10,7 @@ class CurrentsTest(TestCase):
         pass
 
     def test_load(self):
-        currents_obj = currents.query_currents(datetime.date.today())
+        currents_obj = currents.query(datetime.date.today())
         assert currents_obj.data is not None
         print(str(currents_obj))
 

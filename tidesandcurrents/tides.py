@@ -1,15 +1,17 @@
 import requests
 import datetime
 
-def query_tides(date):
+
+def query(date):
+    """Creates new Tides object with data obtained from the NOAA tides and currents webservices"""
     tides_query = 'http://tidesandcurrents.noaa.gov/noaatidepredictions/StationTideInfo.jsp' \
-              '?Stationid=9414290&timeZone=1{}'.format(date.strftime("&bmon=%m&bday=%d&byear=%Y"))
+                  '?Stationid=9414290&timeZone=1{}'.format(date.strftime("&bmon=%m&bday=%d&byear=%Y"))
     r = requests.get(tides_query)
     return Tides(date, r.text)
 
 
 class Tides:
-
+    """A class representing tides predictions"""
     def __init__(self, date, data):
         self.date = date
         self.data = data
