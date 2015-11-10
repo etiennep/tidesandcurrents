@@ -30,9 +30,9 @@ class TidesTest(TestCase):
                '10:02 PM|4.6|high\n' \
                '3:34 PM|low\n'
         tides_obj = Tides(datetime.date.today(), data)
-        expected_str = '2:43 AM|1.5|low\n' \
-                       '9:16 AM|5.7|high\n' \
-                       '3:34 PM|0.6|low\n' \
-                       '10:02 PM|4.6|high\n'
+        expected_str = '02:43 1.5 low\n' \
+                       '09:16 5.7 high\n' \
+                       '15:34 0.6 low\n' \
+                       '22:02 4.6 high\n'
 
         assert str(tides_obj) == expected_str

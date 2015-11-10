@@ -1,5 +1,5 @@
 import requests
-
+import datetime
 
 def query_tides(date):
     tides_query = 'http://tidesandcurrents.noaa.gov/noaatidepredictions/StationTideInfo.jsp' \
@@ -18,11 +18,12 @@ class Tides:
 
     def parse_data(self, data_str):
         for line in data_str.strip().split('\n'):
-            self.tides_table.append(line)
+            self.tides_table.append(line.split('|'))
         self.tides_table.pop()
 
     def __str__(self):
         ret_str = ''
         for item in self.tides_table:
-            ret_str += item + '\n'
+            item_time = datetime.datetime.strptime(item[0], '%I:%M %p')
+            ret_str += '{} {} {}\n'.format(item_time.time().strftime('%H:%M'), item[1], item[2])
         return ret_str

@@ -23,10 +23,10 @@ class Currents:
         for item in self.tree.findall('./data/item'):
             for child in item:
                 if child.tag == 'dateTime':
-                    item_date = datetime.datetime.strptime(child.text, '%Y-%m-%d %H:%M').date()
-                    if item_date > self.date:
+                    item_date_time = datetime.datetime.strptime(child.text, '%Y-%m-%d %H:%M')
+                    if item_date_time.date() > self.date:
                         return ret_str
-                    ret_str += child.text + ': '
+                    ret_str += item_date_time.time().strftime('%H:%M') + ' '
                 elif child.tag == 'slack':
                     ret_str += 'slack\n'
                 elif child.tag == 'ebb':

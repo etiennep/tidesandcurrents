@@ -37,7 +37,8 @@ def tides_and_currents():
 
     tides_data = tides.query_tides(query_date)
     currents_data = currents.query_currents(query_date)
-    message = 'Tide and current predictions for {}\nTides:\n{}\nCurrents:\n{}'.format(query_date.strftime('%m/%d/%Y'), tides_data, currents_data)
+    message = 'Tide and current predictions for {}\nTides:\n{}\nCurrents:\n{}'.format(query_date.strftime('%m/%d/%Y'),
+                                                                                      tides_data, currents_data)
 
     resp = twilio.twiml.Response()
     resp.message(message).media("http://livecams.ocscsailing.com/camera1.php")
