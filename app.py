@@ -1,7 +1,7 @@
 from __future__ import print_function
 from flask import Flask, request
 import twilio.twiml
-from datetime import datetime
+from datetime import datetime, timedelta
 import tidesandcurrents
 from tidesandcurrents import tzinfo
 
@@ -14,7 +14,7 @@ def parse_date(date_str):
     if clean_date_str == 'today':
         return today
     elif clean_date_str == 'tomorrow':
-        return today + datetime.timedelta(days=1)
+        return today + timedelta(days=1)
     else:
         try:
             ret = datetime.strptime(clean_date_str, '%m/%d/%Y').date()
