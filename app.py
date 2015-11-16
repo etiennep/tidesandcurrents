@@ -32,8 +32,8 @@ def tides_and_currents():
     resp = twilio.twiml.Response()
 
     if query_date is None:
-        resp.message("Invalid request. Please send the words 'today', 'tomorrow', or a date (mm/dd/yyyy) to obtain "
-                     "tide and current predictions.")
+        resp.message("Invalid request. Please send the words 'today', 'tomorrow', "
+                     "or a future date (mm/dd/yyyy) to obtain tide and current predictions.")
         return str(resp)
 
     try:
