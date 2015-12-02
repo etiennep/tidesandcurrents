@@ -2,11 +2,14 @@ import requests
 import datetime
 from xml.etree import ElementTree
 
+# NOAA current stations are listed at:
+# http://tidesandcurrents.noaa.gov/noaacurrents/Stations?g=696
+
 
 def query(date):
     """Creates new Currents object with data obtained from the NOAA tides and currents webservices"""
     currents_query = 'http://tidesandcurrents.noaa.gov/noaacurrents/DownloadPredictions?fmt=xml&i=&r=1' \
-                     '&tz=LST%2fLDT&u=1&id=SFB1203_18&t=am%2fpm&i=' \
+                     '&tz=LST%2fLDT&u=1&id=SFB1201_26&t=am%2fpm&i=' \
                      '&threshold=&thresholdvalue=&d={}'.format(date.strftime("%Y-%m-%d"))
     r = requests.get(currents_query)
     return Currents(date, r.text)
